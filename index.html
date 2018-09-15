@@ -28,7 +28,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a>
 					</li>
-				</ul><span class="navbar-text"><a data-target="#loginModal" data-toggle="modal"><span class="fa fa-sign-in"></span> Login</a></span>
+				</ul><span class="navbar-text"><a id="login"><span class="fa fa-sign-in"></span> Login</a></span>
 			</div>
 		</div>
 	</nav>
@@ -37,7 +37,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Login</h4><button class="close" data-dismiss="modal" type="button">&times;</button>
+					<h4 class="modal-title">Login</h4><button class="close" id="cencel" type="button">&times;</button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -55,7 +55,7 @@
 							</div>
 						</div>
 						<div class="form-row">
-							<button class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal" type="button">Cancel</button> <button class="btn btn-primary btn-sm ml-1" type="submit">Sign in</button>
+							<button class="btn btn-secondary btn-sm ml-auto" id="cencelButton" type="button">Cancel</button> <button class="btn btn-primary btn-sm ml-1" type="submit">Sign in</button>
 						</div>
 					</form>
 				</div>
@@ -67,7 +67,7 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Reserve a Table</h4><button class="close" data-dismiss="modal" type="button">&times;</button>
+					<h4 class="modal-title">Reserve a Table</h4><button class="close" id="closeButton" type="button">&times;</button>
 				</div>
 				<div class="modal-body">
 					<form>
@@ -124,7 +124,7 @@
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="col-sm-2"></div><button class="btn btn-secondary btn-sm" data-dismiss="modal" type="button">Cancel</button> <button class="btn btn-primary btn-sm ml-1" type="submit">Reserve</button>
+							<div class="col-sm-2"></div><button class="btn btn-secondary btn-sm" id="cencelReserveBtn" type="button">Cancel</button> <button class="btn btn-primary btn-sm ml-1" type="submit">Reserve</button>
 						</div>
 					</form>
 				</div>
@@ -140,7 +140,7 @@
 				</div>
 				<div class="col-12 col-sm-3 align-self-center"><img class="img-fluid" src="img/logo.png"></div>
 				<div class="col-12 mt-2 col-sm-3 align-self-center">
-					<a class="btn btn-block nav-link btn-warning" data-html="true" data-placement="bottom" data-target="#reserveModal" data-toggle="modal" role="button">Reserve Table</a>
+					<a class="btn btn-block nav-link btn-warning" id="reserveTableBtn" role="button">Reserve Table</a>
 				</div>
 			</div>
 		</div>
@@ -274,21 +274,40 @@
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js">
 	</script> 
 	<script>
-	              $(document).ready(function(){
-	                  $("#mycarousel").carousel( { interval: 2000 } );
-	                  $("#carouselButton").click(function(){
-	               if ($("#carouselButton").children("span").hasClass('fa-pause')) {
-	                   $("#mycarousel").carousel('pause');
-	                   $("#carouselButton").children("span").removeClass('fa-pause');
-	                   $("#carouselButton").children("span").addClass('fa-play');
-	               }
-	               else if ($("#carouselButton").children("span").hasClass('fa-play')){
-	                   $("#mycarousel").carousel('cycle');
-	                   $("#carouselButton").children("span").removeClass('fa-play');
-	                   $("#carouselButton").children("span").addClass('fa-pause');                    
-	               }
-	               });
-	           });
+	                 $(document).ready(function(){
+	                     $("#mycarousel").carousel( { interval: 2000 } );
+	                     $("#carouselButton").click(function(){
+	                  if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+	                      $("#mycarousel").carousel('pause');
+	                      $("#carouselButton").children("span").removeClass('fa-pause');
+	                      $("#carouselButton").children("span").addClass('fa-play');
+	                  }
+	                  else if ($("#carouselButton").children("span").hasClass('fa-play')){
+	                      $("#mycarousel").carousel('cycle');
+	                      $("#carouselButton").children("span").removeClass('fa-play');
+	                      $("#carouselButton").children("span").addClass('fa-pause');                    
+	                  }
+	                  });
+	                      $("#login").click(function(){
+	                      $("#loginModal").modal('toggle')
+	                       });
+	                       $("#cencelButton").click(function(){
+	                      $("#loginModal").modal('hide')
+	                       });
+	                       $("#cencel").click(function(){
+	                      $("#loginModal").modal('hide')
+	                       });
+	                       $("#reserveTableBtn").click(function(){
+	                      $("#reserveModal").modal('toggle')
+	                       });
+	                       $("#closeButton").click(function(){
+	                      $("#reserveModal").modal('hide')
+	                       });
+	                       $("#cencelReserveBtn").click(function(){
+	                      $("#reserveModal").modal('hide')
+	                       });
+	                       
+	              });
 	</script>
 </body>
 </html>
