@@ -72,12 +72,12 @@
 				<div class="modal-body">
 					<form>
 						<div class="form-row">
-							<div class="col-sm-2">
+							<div class="col-12 col-sm-2">
 								<div class="form-check">
 									<label class="col-form-label" for="guests"><strong>Number of Guests</strong></label>
 								</div>
 							</div>
-							<div class="col-12 col-sm-8 mt-3">
+							<div class="col-12 col-sm-8 mt-sm-3">
 								<div class="form-check form-check-inline">
 									<label class="form-check-label"><input checked class="form-check-input" id="inlineRadio1" name="inlineRadioOptions" type="radio" value="option1"> 1</label>
 								</div>
@@ -99,27 +99,27 @@
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="col-sm-2">
+							<div class="col-12 col-sm-2">
 								<div class="form-check">
 									<label class="col-form-label" for="guests"><strong>Section</strong></label>
 								</div>
 							</div>
-							<div class="col-sm-8 mt-1">
+							<div class="col-12 col-sm-8 mt-sm-1">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn btn-success btn-sm active"><input autocomplete="off" checked id="option1" name="options" type="radio"> Non-Smoking</label> <label class="btn btn-danger btn-sm"><input autocomplete="off" id="option2" name="options" type="radio"> Smoking</label>
 								</div>
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="col-sm-2">
+							<div class="col-12 col-sm-2">
 								<div class="form-check">
 									<label class="col-form-label" for="date-time-input"><strong>Date and Time</strong></label>
 								</div>
 							</div>
-							<div class="form-group col-sm-4 mt-3">
+							<div class="form-group col-12 col-sm-4 mt-sm-3">
 								<label class="sr-only"></label> <input class="form-control form-control-sm mr-1" id="date-input" placeholder="Date" type="date" value="2018-07-22">
 							</div>
-							<div class="form-group col-sm-4 mt-3">
+							<div class="form-group col-12 col-sm-4 mt-sm-3">
 								<label class="sr-only"></label> <input class="form-control form-control-sm mr-1" id="time-input" placeholder="Time" type="time" value="16:30">
 							</div>
 						</div>
@@ -178,6 +178,9 @@
 							</div>
 						</div>
 					</div><a class="carousel-control-prev" data-slide="prev" href="#mycarousel" role="button"><span class="carousel-control-prev-icon"></span></a> <a class="carousel-control-next" data-slide="next" href="#mycarousel" role="button"><span class="carousel-control-next-icon"></span></a>
+					<div class="btn-group" id="carouselButton">
+						<button class="btn btn-danger btn-sm" id="carousel-pause"><span class="fa fa-pause"></span></button> <button class="btn btn-danger btn-sm" id="carousel-play"><span class="fa fa-play"></span></button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -272,6 +275,17 @@
 	<script src="node_modules/popper.js/dist/umd/popper.min.js">
 	</script> 
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js">
+	</script> 
+	<script>
+	           $(document).ready(function(){
+	               $("#mycarousel").carousel( { interval: 2000 } );
+	               $("#carousel-pause").click(function(){
+	                   $("#mycarousel").carousel('pause');
+	               });
+	               $("#carousel-play").click(function(){
+	                   $("#mycarousel").carousel('cycle');
+	               });
+	           });
 	</script>
 </body>
 </html>
